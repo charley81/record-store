@@ -9,13 +9,12 @@ class New extends React.Component {
           <h1>Create a new product</h1>
           <form action="/products" method="POST" encType="multipart/form-data">
             <div className="form-control">
-              <label htmlFor="artist">Artist: </label>
+              <label htmlFor="title">Artist: </label>
               <input
                 type="text"
                 id="artist"
                 name="artist"
                 placeholder="enter artist..."
-                required
               />
             </div>
             <div className="form-control">

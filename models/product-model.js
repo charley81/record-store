@@ -1,10 +1,11 @@
 const mongoose = require('mongoose')
 
 const productSchema = new mongoose.Schema({
-  artist: {
-    type: String
-  },
   title: {
+    type: String,
+    required: true
+  },
+  artist: {
     type: String,
     required: true
   },

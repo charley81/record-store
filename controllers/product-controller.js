@@ -5,7 +5,14 @@ const cloudinary = require('../utils/cloudinary')
 // @route GET /products
 // @access public
 const allProducts = (req, res) => {
-  res.json({ message: 'index page' })
+  productModel.find({}, (error, items) => {
+    if (error) {
+      res.status(400).json(error)
+    } else {
+      res.status(200)
+      res.render('products/Index', { products: items })
+    }
+  })
 }
 
 // @desc post a new product
@@ -16,6 +23,7 @@ const createNew = async (req, res) => {
     const result = await cloudinary.uploader.upload(req.file.path)
 
     const product = new productModel({
+      artist: req.body.artist,
       title: req.body.title,
       genre: req.body.genre,
       quantity: req.body.quantity,
@@ -29,7 +37,7 @@ const createNew = async (req, res) => {
         res.status(400).json(error)
       } else {
         res.status(200)
-        res.json({ message: 'image created in db' })
+        res.redirect('/products')
       }
     })
   } catch (error) {
