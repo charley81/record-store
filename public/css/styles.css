@@ -1,10 +1,64 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;400;900&display=swap');
+
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
+:root {
+  --color-danger: #d72638;
+  --color-primary: #12355b;
+  --color-light: #fafcff;
+  --color-dark: #04101d;
+  --color-grey-light: #b6c1cd;
+  --color-grey-med: #7a828a;
+  --color-grey-dark: #2e3134;
+  --max-width-form: 600px;
+  --max-width-page: 1100px;
+  --border-radius: 4px;
+  --font-family: 'Inter', sans-serif;
+  --transition: all 0.3s ease-in-out;
+}
+
+body {
+  line-height: 1.5;
+  font-family: var(--font-family);
+  font-size: 16px;
+  background-color: var(--color-light);
+}
+
 img {
   width: 200px;
   height: 200px;
+}
+
+/* main nav */
+.main-nav {
+  background-color: var(--color-grey-dark);
+  color: var(--color-light);
+  height: 5rem;
+  padding: 1rem;
+}
+
+.main-nav .nav-container {
+  height: 100%;
+  max-width: var(--max-width-page);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: auto;
+}
+
+.main-nav .nav-container a {
+  text-decoration: none;
+  color: var(--color-light);
+}
+
+.logo {
+  font-size: 1.5rem;
+}
+
+.main-nav .nav-container a span {
+  font-weight: 900;
 }
