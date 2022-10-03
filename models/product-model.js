@@ -1,6 +1,9 @@
 const mongoose = require('mongoose')
 
 const productSchema = new mongoose.Schema({
+  artist: {
+    type: String
+  },
   title: {
     type: String,
     required: true
@@ -10,7 +13,7 @@ const productSchema = new mongoose.Schema({
     required: true
   },
   quantity: {
-    type: String,
+    type: Number,
     required: true
   },
   description: {

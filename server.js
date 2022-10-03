@@ -8,6 +8,9 @@ const app = express()
 // PORT
 const PORT = process.env.PORT || 3000
 
+// Connect DB
+connectDB()
+
 // Bodyparser middleware
 app.use(express.json())
 app.use(express.urlencoded({ extended: false }))
@@ -23,10 +26,7 @@ app.set('view engine', 'js')
 app.engine('js', require('express-react-views').createEngine())
 
 // Setup views
-app.use('/products', require('./routes/product-routes.js'))
+app.use('/products', require('./routes/product-routes'))
 
 // Listen
 app.listen(PORT, () => console.log(`Listening on port: ${PORT}`.white))
-
-// Connect DB
-connectDB()
