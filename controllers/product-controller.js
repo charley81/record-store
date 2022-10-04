@@ -1,5 +1,6 @@
 const productModel = require('../models/product-model')
 const cloudinary = require('../utils/cloudinary')
+const productSeed = require('../models/product-seed')
 
 // @desc get all the products
 // @route GET /products
@@ -66,9 +67,30 @@ const showProduct = (req, res) => {
   })
 }
 
+// @desc get seed data for products
+// @route GET /products/seed
+// @access public
+const seedStarter = (req, res) => {
+  productModel.deleteMany({}, (error, deletedProducts) => {
+    if (error) {
+      res.status(400).json(error)
+    } else {
+      productModel.create(productSeed, (error, createdProducts) => {
+        if (error) {
+          res.status(400).json(error)
+        } else {
+          res.status(200)
+          res.redirect('/products')
+        }
+      })
+    }
+  })
+}
+
 module.exports = {
   allProducts,
   createNew,
   newForm,
-  showProduct
+  showProduct,
+  seedStarter
 }

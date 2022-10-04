@@ -5,7 +5,8 @@ const {
   allProducts,
   createNew,
   newForm,
-  showProduct
+  showProduct,
+  seedStarter
 } = require('../controllers/product-controller')
 
 // get all products
@@ -16,6 +17,9 @@ router.get('/new', newForm)
 
 // create a new product
 router.post('/', upload.single('image'), createNew)
+
+// get product seed
+router.get('/seed', seedStarter)
 
 // show a single product
 router.get('/:id', showProduct)
