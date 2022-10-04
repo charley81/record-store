@@ -4,35 +4,39 @@ const Layout = require('../layout/layout')
 class New extends React.Component {
   render() {
     return (
-      <Layout>
-        <div className="wrapper">
+      <Layout view="new">
+        <div className="wrapper new">
           <h1>Create a new product</h1>
           <form action="/products" method="POST" encType="multipart/form-data">
             <div className="form-control">
-              <label htmlFor="title">Artist: </label>
+              <label htmlFor="title" className="block">
+                Artist:
+              </label>
               <input
                 type="text"
                 id="artist"
                 name="artist"
+                className="block"
                 placeholder="enter artist..."
               />
             </div>
             <div className="form-control">
-              <label htmlFor="title">Title: </label>
+              <label htmlFor="title" className="block">
+                Title:{' '}
+              </label>
               <input
                 type="text"
                 id="title"
                 name="title"
+                maxlength="30"
+                className="block"
                 placeholder="enter title..."
                 required
               />
             </div>
-            <div className="form-control">
+            <div className="form-control flex">
               <label htmlFor="genre">Genre: </label>
               <select name="genre" id="genre">
-                <option value="" disabled selected hidden>
-                  Choose Genre...
-                </option>
                 <option value="hip-hop">Hip-Hip</option>
                 <option value="rock">Rock</option>
                 <option value="country">Country</option>
@@ -42,28 +46,38 @@ class New extends React.Component {
               </select>
             </div>
             <div className="form-control">
-              <label htmlFor="quantity">Quantity: </label>
+              <label htmlFor="quantity" className="block">
+                Quantity:{' '}
+              </label>
               <input
-                type="text"
+                type="number"
                 id="quantity"
                 name="quantity"
+                min="0"
+                max="500"
+                className="block"
                 placeholder="enter qty..."
                 required
               />
             </div>
             <div className="form-control">
-              <label htmlFor="description">Description: </label>
+              <label htmlFor="description" className="block">
+                Description:{' '}
+              </label>
               <textarea
                 name="description"
                 id="description"
                 cols="30"
                 rows="10"
+                className="block"
                 placeholder="enter description..."
                 required
               ></textarea>
             </div>
             <div className="form-control upload">
-              <label htmlFor="image">Upload: </label>
+              <label htmlFor="image" className="block">
+                Upload:{' '}
+              </label>
               <input type="file" id="image" name="image" />
             </div>
             <button className="btn" type="submit">

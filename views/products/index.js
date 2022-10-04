@@ -7,28 +7,20 @@ class Index extends React.Component {
 
     return (
       <Layout>
-        <div className="wrapper">
+        <div className="wrapper index">
           <h1>All Products</h1>
           <section className="products">
             {products.map(product => {
-              const {
-                _id,
-                artist,
-                title,
-                image,
-                description,
-                quantity,
-                genre
-              } = product
+              const { _id, artist, title, image, quantity, genre } = product
               return (
                 <a href={`/products/${_id}`} key={_id} className="item">
                   <img src={image} alt="" />
                   <div className="info">
-                    <h3>{artist}</h3>
+                    <h4>{artist}</h4>
                     <p>{title}</p>
                     <p>Genre: {genre}</p>
                   </div>
-                  <h3>{quantity} left</h3>
+                  <h4>{quantity} left</h4>
                 </a>
               )
             })}

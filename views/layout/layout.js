@@ -13,7 +13,9 @@ class Layout extends React.Component {
               <a href="/products" className="logo">
                 uptown<span>Recs</span>
               </a>
-              <a href="/products/new">Add Product</a>
+              {this.props.view === 'new' || (
+                <a href="/products/new">Add Product</a>
+              )}
             </div>
           </nav>
           {this.props.children}

@@ -52,8 +52,23 @@ const newForm = (req, res) => {
   res.render('products/New')
 }
 
+// @desc show a single product
+// @route GET /products/:id
+// @access public
+const showProduct = (req, res) => {
+  productModel.findById(req.params.id, (error, item) => {
+    if (error) {
+      res.status(400).json(error)
+    } else {
+      res.status(200)
+      res.render('products/Show', { product: item })
+    }
+  })
+}
+
 module.exports = {
   allProducts,
   createNew,
-  newForm
+  newForm,
+  showProduct
 }
