@@ -101,16 +101,39 @@ const clearSeedStarter = (req, res) => {
   })
 }
 
-const deleteProduct = (req, res) => {
-  productModel.findByIdAndDelete(req.params.id, (error, deletedProduct) => {
+// @desc delete a product
+// @route DELETE /products/:id
+// access public
+const deleteProduct = async (req, res) => {
+  try {
+    // find user by id
+    let product = await productModel.findById(req.params.id)
+    // delete image from cloudinary
+    await cloudinary.uploader.destroy(product.cloudinary_id)
+    // delete product from database
+    await product.remove()
+    res.redirect('/products')
+  } catch (error) {
+    console.log(error)
+  }
+}
+
+// @desc form to edit product
+// @route GET /products/:id/edit
+// @access public
+const editForm = (req, res) => {
+  productModel.findById(req.params.id, (error, foundProduct) => {
     if (error) {
-      res.status(400).json(error)
+      res.status(400).json(err)
     } else {
       res.status(200)
-      res.redirect('/products')
+      res.render('products/Edit', { product: foundProduct })
     }
   })
 }
+
+// @desc form
+const updateProduct = (req, res) => {}
 
 module.exports = {
   allProducts,
@@ -119,5 +142,7 @@ module.exports = {
   showProduct,
   seedStarter,
   clearSeedStarter,
-  deleteProduct
+  deleteProduct,
+  editForm,
+  updateProduct
 }

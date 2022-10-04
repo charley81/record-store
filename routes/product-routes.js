@@ -8,7 +8,9 @@ const {
   showProduct,
   seedStarter,
   clearSeedStarter,
-  deleteProduct
+  deleteProduct,
+  editForm,
+  updateProduct
 } = require('../controllers/product-controller')
 
 // get all products
@@ -20,8 +22,14 @@ router.get('/new', newForm)
 // delete a single product
 router.delete('/:id', deleteProduct)
 
+// update product
+router.put('/:id', upload.single('image'), updateProduct)
+
 // create a new product
 router.post('/', upload.single('image'), createNew)
+
+// get edit form
+router.get('/:id/edit', editForm)
 
 // get product seed
 router.get('/seed', seedStarter)
