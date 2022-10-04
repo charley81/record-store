@@ -87,10 +87,22 @@ const seedStarter = (req, res) => {
   })
 }
 
+const clearSeedStarter = (req, res) => {
+  productModel.deleteMany({}, (error, deletedProducts) => {
+    if (error) {
+      res.status(400).json(error)
+    } else {
+      res.status(200)
+      res.redirect('/products')
+    }
+  })
+}
+
 module.exports = {
   allProducts,
   createNew,
   newForm,
   showProduct,
-  seedStarter
+  seedStarter,
+  clearSeedStarter
 }
