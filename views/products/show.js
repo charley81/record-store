@@ -7,22 +7,33 @@ class Show extends React.Component {
       this.props.product
     return (
       <Layout>
-        <div className="wrapper">
+        <div className="wrapper show">
+          {/* header */}
+          <img src={image} alt={`album cover of ${artist} - ${title}`} />
+
+          {/* info */}
           <div className="info">
-            <h3>{title}</h3>
-            <p>{artist}</p>
-            <p>{genre}</p>
-            <p>{quantity} left</p>
+            <div className="stats">
+              <div className="info-header">
+                <h3>{title}</h3>
+                <p>{artist}</p>
+                <p>{genre}</p>
+              </div>
+              <h3>{quantity} left</h3>
+
+              {/* edit & delete */}
+              <form action={`/products/${_id}?_method=DELETE`} method="POST">
+                <a href={`/products/${_id}/edit`}>edit</a>
+                <button type="submit" className="delete">
+                  delete
+                </button>
+              </form>
+            </div>
+            <p className="description">{description}</p>
           </div>
-          <img src={image} alt="" />
-          <form action={`/products/${_id}?_method=DELETE`} method="POST">
-            <a href={`/products/${_id}/edit`}>edit</a>
-            <button type="submit" className="delete">
-              delete
-            </button>
-          </form>
+
+          {/* add to bag */}
           <button className="btn">Add to Bag</button>
-          <p className="description">{description}</p>
         </div>
       </Layout>
     )
