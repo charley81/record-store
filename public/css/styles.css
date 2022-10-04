@@ -29,8 +29,13 @@ body {
 }
 
 img {
-  width: 200px;
-  height: 200px;
+  width: 100%;
+  height: auto;
+  border-radius: var(--border-radius);
+}
+
+h1 {
+  margin-bottom: 2rem;
 }
 
 /* main nav */
@@ -61,4 +66,38 @@ img {
 
 .main-nav .nav-container a span {
   font-weight: 900;
+}
+
+/* index */
+.products {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 2rem;
+}
+
+.products a {
+  text-decoration: none;
+}
+
+.products a h3 {
+  color: var(--color-dark);
+}
+
+/* utilities */
+.wrapper {
+  padding: 1rem;
+  max-width: var(--max-width-page);
+  margin: 4rem auto;
+}
+
+.item {
+  width: 100%;
+}
+
+.item .info {
+  margin-bottom: 0.5rem;
+}
+
+.item p {
+  color: var(--color-grey-med);
 }
