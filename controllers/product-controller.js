@@ -16,6 +16,13 @@ const allProducts = (req, res) => {
   })
 }
 
+// @desc get a form to create a product
+// @route GET /products/new
+// @access public
+const newForm = (req, res) => {
+  res.render('products/New')
+}
+
 // @desc post a new product
 // @route POST /products
 // @access public
@@ -44,13 +51,6 @@ const createNew = async (req, res) => {
   } catch (error) {
     console.log(error)
   }
-}
-
-// @desc get a form to create a product
-// @route GET /products/new
-// @access public
-const newForm = (req, res) => {
-  res.render('products/New')
 }
 
 // @desc show a single product
@@ -87,8 +87,22 @@ const seedStarter = (req, res) => {
   })
 }
 
+// @desc clear the seed data
+// @route GET /products/clear
+// @access public
 const clearSeedStarter = (req, res) => {
   productModel.deleteMany({}, (error, deletedProducts) => {
+    if (error) {
+      res.status(400).json(error)
+    } else {
+      res.status(200)
+      res.redirect('/products')
+    }
+  })
+}
+
+const deleteProduct = (req, res) => {
+  productModel.findByIdAndDelete(req.params.id, (error, deletedProduct) => {
     if (error) {
       res.status(400).json(error)
     } else {
@@ -104,5 +118,6 @@ module.exports = {
   newForm,
   showProduct,
   seedStarter,
-  clearSeedStarter
+  clearSeedStarter,
+  deleteProduct
 }
