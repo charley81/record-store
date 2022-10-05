@@ -19,7 +19,7 @@ class Show extends React.Component {
                 <p>{artist}</p>
                 <p>{genre}</p>
               </div>
-              <h3>{quantity} left</h3>
+              <h3>{quantity > 0 ? `${quantity} Left` : 'Out of Stock'}</h3>
 
               {/* edit & delete */}
               <form action={`/products/${_id}?_method=DELETE`} method="POST">
@@ -33,7 +33,15 @@ class Show extends React.Component {
           </div>
 
           {/* add to bag */}
-          <button className="btn">Add to Bag</button>
+          {quantity !== 0 ? (
+            <button className="btn">Add to Bag</button>
+          ) : (
+            <div>
+              <button className="btn" disabled>
+                Add to Bag
+              </button>
+            </div>
+          )}
         </div>
       </Layout>
     )

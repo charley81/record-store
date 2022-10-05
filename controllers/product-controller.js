@@ -133,7 +133,37 @@ const editForm = (req, res) => {
 }
 
 // @desc form
-const updateProduct = (req, res) => {}
+const updateProduct = async (req, res) => {
+  try {
+    let product = await productModel.findById(req.params.id)
+    await cloudinary.uploader.destroy(product.cloudinary_id)
+
+    const result = await cloudinary.uploader.upload(req.file.path)
+
+    // new obj with updated data
+    const updatedProduct = {
+      artist: req.body.name || product.name,
+      title: req.body.title || product.title,
+      quantity: req.body.quantity || product.quantity,
+      description: req.body.description || product.description,
+      genre: req.body.genre || product.genre,
+      image: result.secure_url || product.image,
+      cloudinary_id: result.public_id || product.cloudinary_id
+    }
+
+    // update product in database
+    product = await productModel.findByIdAndUpdate(
+      req.params.id,
+      updatedProduct,
+      { new: true }
+    )
+
+    res.status(200)
+    res.redirect(`/products/${req.params.id}`)
+  } catch (error) {
+    console.log(error)
+  }
+}
 
 module.exports = {
   allProducts,
