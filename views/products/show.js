@@ -5,11 +5,14 @@ class Show extends React.Component {
   render() {
     const { _id, artist, title, genre, image, description, quantity } =
       this.props.product
+    console.log(image)
     return (
       <Layout>
         <div className="wrapper show">
           {/* header */}
-          <img src={image} alt={`album cover of ${artist} - ${title}`} />
+          <div className="img-container-show">
+            <img src={image} alt={`album cover of ${artist} - ${title}`} />
+          </div>
 
           {/* info */}
           <div className="info">

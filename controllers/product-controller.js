@@ -28,7 +28,13 @@ const newForm = (req, res) => {
 // @access public
 const createNew = async (req, res) => {
   try {
-    const result = await cloudinary.uploader.upload(req.file.path)
+    if (req.file) {
+      await cloudinary.uploader.upload(req.file.path)
+    }
+
+    const result = req.file
+      ? await cloudinary.uploader.upload(req.file.path)
+      : null
 
     const product = new productModel({
       artist: req.body.artist,
@@ -36,8 +42,8 @@ const createNew = async (req, res) => {
       genre: req.body.genre,
       quantity: req.body.quantity,
       description: req.body.description,
-      image: result.secure_url,
-      cloudinary_id: result.public_id
+      image: result?.secure_url || '/images/soon.jpeg',
+      cloudinary_id: result?.public_id
     })
 
     productModel.create(product, (error, item) => {
@@ -108,8 +114,12 @@ const deleteProduct = async (req, res) => {
   try {
     // find user by id
     let product = await productModel.findById(req.params.id)
+
     // delete image from cloudinary
-    await cloudinary.uploader.destroy(product.cloudinary_id)
+    if (product.cloudinary_id) {
+      await cloudinary.uploader.destroy(product.cloudinary_id)
+    }
+
     // delete product from database
     await product.remove()
     res.redirect('/products')

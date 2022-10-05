@@ -14,7 +14,12 @@ class Index extends React.Component {
               const { _id, artist, title, image, quantity, genre } = product
               return (
                 <a href={`/products/${_id}`} key={_id} className="item">
-                  <img src={image} alt="" />
+                  <div className="img-container">
+                    <img
+                      src={image}
+                      alt={`${artist}'s album cover for the ${title} album`}
+                    />
+                  </div>
                   <div className="info">
                     <h4>{artist}</h4>
                     <p>{title}</p>
