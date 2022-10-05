@@ -23,7 +23,9 @@ class Show extends React.Component {
 
               {/* edit & delete */}
               <form action={`/products/${_id}?_method=DELETE`} method="POST">
-                <a href={`/products/${_id}/edit`}>edit</a>
+                <a href={`/products/${_id}/edit`} className="edit">
+                  edit
+                </a>
                 <button type="submit" className="delete">
                   delete
                 </button>
@@ -33,8 +35,15 @@ class Show extends React.Component {
           </div>
 
           {/* add to bag */}
-          {quantity !== 0 ? (
-            <button className="btn">Add to Bag</button>
+          {quantity > 0 ? (
+            <form
+              action={`/products/${_id}/purchase?_method=PUT`}
+              method="POST"
+            >
+              <button type="submit" className="btn">
+                Add to Bag
+              </button>
+            </form>
           ) : (
             <div>
               <button className="btn" disabled>

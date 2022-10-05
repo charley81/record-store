@@ -132,9 +132,7 @@ const editForm = (req, res) => {
   })
 }
 
-// @desc update product
-// @router PUT /products/:id
-// @access public
+// @desc form
 const updateProduct = async (req, res) => {
   try {
     let product = await productModel.findById(req.params.id)
@@ -165,7 +163,37 @@ const updateProduct = async (req, res) => {
       { new: true }
     )
 
-    // res.status(200)
+    res.status(200)
+    res.redirect(`/products/${req.params.id}`)
+  } catch (error) {
+    console.log(error)
+  }
+}
+
+const updateQuantity = async (req, res) => {
+  try {
+    // find the product
+    let product = await productModel.findById(req.params.id)
+
+    // new obj with updated data
+    const updatedProduct = {
+      artist: product.name,
+      title: product.title,
+      quantity: product.quantity - 1,
+      description: product.description,
+      genre: product.genre,
+      image: product.image,
+      cloudinary_id: product.cloudinary_id
+    }
+
+    // update product in database
+    product = await productModel.findByIdAndUpdate(
+      req.params.id,
+      updatedProduct,
+      { new: false }
+    )
+
+    res.status(200)
     res.redirect(`/products/${req.params.id}`)
   } catch (error) {
     console.log(error)
@@ -181,5 +209,6 @@ module.exports = {
   clearSeedStarter,
   deleteProduct,
   editForm,
-  updateProduct
+  updateProduct,
+  updateQuantity
 }
