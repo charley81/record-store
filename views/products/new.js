@@ -17,6 +17,7 @@ class New extends React.Component {
                 id="artist"
                 name="artist"
                 className="block"
+                maxLength="20`"
                 placeholder="enter artist..."
               />
             </div>
@@ -28,7 +29,7 @@ class New extends React.Component {
                 type="text"
                 id="title"
                 name="title"
-                maxlength="30"
+                maxLength="30"
                 className="block"
                 placeholder="enter title..."
                 required

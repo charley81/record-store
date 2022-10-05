@@ -35,10 +35,6 @@ img {
   border-radius: var(--border-radius);
 }
 
-h1 {
-  margin-bottom: 2rem;
-}
-
 /* main nav */
 .main-nav {
   background-color: var(--color-grey-dark);
@@ -88,6 +84,7 @@ h1 {
 .products a h4 {
   color: var(--color-dark);
   font-weight: 700;
+  text-transform: capitalize;
 }
 
 .products .item {
@@ -100,35 +97,21 @@ h1 {
 
 .products .item p {
   color: var(--color-grey-med);
-}
-
-/* new */
-.new {
-  max-width: var(--max-width-form);
-  margin: auto;
-}
-.new .form-control {
-  margin: 1rem 0;
-}
-
-.new #image {
-  padding: 0;
-}
-
-.new input,
-.new textarea {
-  padding: 1rem;
-  font-family: var(--font-family);
+  text-transform: capitalize;
 }
 
 /* show */
 .show {
-  max-width: var(--max-width-form);
   margin: auto;
+}
+
+.show h3 {
+  text-transform: capitalize;
 }
 
 .show p {
   color: var(--color-grey-med);
+  text-transform: capitalize;
 }
 
 .show .info {
@@ -161,8 +144,24 @@ h1 {
   margin-top: 1rem;
 }
 
+/* edit */
+.edit header {
+  display: flex;
+  align-items: center;
+}
+
+.edit header h1 {
+  margin-right: 1rem;
+}
+
+.edit header a {
+  color: var(--color-primary);
+}
+
 /* utilities */
 .wrapper {
+  max-width: var(--max-width-form);
+  margin: auto;
   padding: 1rem;
   margin: 2rem auto;
 }
@@ -210,6 +209,21 @@ button[disabled]:hover {
   background-color: inherit;
   border: 1px solid var(--color-primary);
   color: var(--color-dark);
+}
+
+/* forms */
+.form-control {
+  margin: 1rem 0;
+}
+
+.new #image {
+  padding: 0;
+}
+
+input,
+textarea {
+  padding: 1rem;
+  font-family: var(--font-family);
 }
 
 /* media queries */

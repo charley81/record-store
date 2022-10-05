@@ -6,9 +6,13 @@ class Edit extends React.Component {
     const { _id, artist, title, quantity, description, image, genre } =
       this.props.product
     return (
-      <Layout view="new">
-        <div className="wrapper new">
-          <h1>Edit Product</h1>
+      <Layout view="edit">
+        <div className="wrapper edit">
+          <header>
+            <h1>Edit Product</h1>
+            <a href={`/products/${_id}`}>Back</a>
+          </header>
+
           <form
             action={`/products/${_id}?_method=PUT`}
             method="POST"
