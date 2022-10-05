@@ -17,7 +17,6 @@ class New extends React.Component {
                 id="artist"
                 name="artist"
                 className="block"
-                maxLength="20`"
                 placeholder="enter artist..."
               />
             </div>
@@ -29,7 +28,6 @@ class New extends React.Component {
                 type="text"
                 id="title"
                 name="title"
-                maxLength="30"
                 className="block"
                 placeholder="enter title..."
                 required
@@ -44,6 +42,8 @@ class New extends React.Component {
                 <option value="electronic">Electronic</option>
                 <option value="metal">Metal</option>
                 <option value="blues">Blues</option>
+                <option value="r&b">R&B</option>
+                <option value="soul">Soul</option>
               </select>
             </div>
             <div className="form-control">

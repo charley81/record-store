@@ -15,7 +15,7 @@
   --color-grey-med: #7a828a;
   --color-grey-dark: #2e3134;
   --max-width-form: 700px;
-  --max-width-page: 1100px;
+  --max-width-page: 1000px;
   --border-radius: 2px;
   --font-family: 'Inter', sans-serif;
   --transition: all 0.3s ease-in-out;
@@ -40,6 +40,8 @@ img {
   color: var(--color-light);
   height: 5rem;
   padding: 1rem;
+  position: sticky;
+  top: 0;
 }
 
 .main-nav .nav-container {
@@ -54,6 +56,12 @@ img {
 .main-nav .nav-container a {
   text-decoration: none;
   color: var(--color-light);
+  transition: var(--transition);
+}
+
+.main-nav .nav-container a:hover {
+  color: var(--color-grey-light);
+  transform: scale(1.1);
 }
 
 .logo {
@@ -65,11 +73,6 @@ img {
 }
 
 /* index */
-.index {
-  max-width: var(--max-width-page);
-  margin: auto;
-}
-
 .products {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
@@ -88,10 +91,11 @@ img {
 
 .products .item {
   width: 100%;
+  border-radius: var(--border-radius);
 }
 
 .products .item .info {
-  margin-bottom: 0.5rem;
+  margin-bottom: 1rem;
 }
 
 .products .item p {
@@ -159,14 +163,14 @@ img {
 
 /* utilities */
 .wrapper {
-  max-width: var(--max-width-form);
+  max-width: var(--max-width-page);
   margin: auto;
   padding: 1rem;
   margin: 2rem auto;
 }
 
 .wrapper h1 {
-  margin-bottom: 1rem;
+  margin-bottom: 2rem;
 }
 
 .block {
@@ -223,6 +227,10 @@ button[disabled]:hover {
 
 .new #image {
   padding: 0;
+}
+
+label {
+  font-weight: 400;
 }
 
 input,
