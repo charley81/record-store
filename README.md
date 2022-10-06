@@ -68,11 +68,34 @@ Show View
 Edit View
 ![Edit View](https://res.cloudinary.com/charley81/image/upload/v1665009235/uptownRecs/edit_h3lrwl.png)
 
+### Take Away:
+
+- Working with a node server using express, mongoose, mongoDB, and JSX for a view engine
+
+### Challenges
+
+- Allowing the user to upload a image file from their computer
+- What is the user doesn't upload a image => app breaks
+- When you update a product if you don't upload a image => app breaks
+- You must upload a image
+
+### Ideas incorperated into project
+
+- Give the user feedback and create a better user experience
+- Truncating text on index products and showing full text on details page
+- Not showing add products link in nav while on add product page
+- Making the entire product clickable
+- Responsive styling
+- Hover effects
+- Call to actions
+
 ### Next Steps
 
-1. Add image preivew
-2. Add listen link to show view
-3. Add functionality where you cannot add the same product twice
+1. Authentication
+2. Add image preivew
+3. Add listen link to show view
+4. Add functionality where you cannot add the same product twice
+5. Add custom alerts giving user feedback i.e delete successful, are you sure you want to delete, update successful etc.
 
 ## License
 
