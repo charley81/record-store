@@ -95,7 +95,7 @@ img {
 }
 
 .products .item .info {
-  margin-bottom: 1rem;
+  margin-bottom: 0.5rem;
 }
 
 .products .item p {
@@ -107,6 +107,10 @@ img {
 .show {
   margin: auto;
 }
+
+/* .img-container-show {
+  max-height: 300px;
+} */
 
 .show h3 {
   text-transform: capitalize;
