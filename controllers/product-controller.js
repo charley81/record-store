@@ -142,7 +142,9 @@ const editForm = (req, res) => {
   })
 }
 
-// @desc form
+// @desc update a product
+// @router PUT /products/:id
+// @access public
 const updateProduct = async (req, res) => {
   try {
     let product = await productModel.findById(req.params.id)
@@ -180,6 +182,9 @@ const updateProduct = async (req, res) => {
   }
 }
 
+// @desc update quantity of product when purchasing
+// @router PUT /products/:id/purchase
+// @access public
 const updateQuantity = async (req, res) => {
   try {
     // find the product
