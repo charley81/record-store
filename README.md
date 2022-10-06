@@ -75,9 +75,8 @@ Edit View
 ### Challenges
 
 - Allowing the user to upload a image file from their computer
-- What is the user doesn't upload a image => app breaks
+- What if the user doesn't upload a image => app breaks
 - When you update a product if you don't upload a image => app breaks
-- You must upload a image
 
 ### Ideas incorperated into project
 
