@@ -37,7 +37,7 @@ CLOUDINARY_API_SECRET = XKduGmnbomBMd34DeekdXeenyle9o
 Now download required packages and start the server
 
 ```
-npm istall
+npm install
 ```
 
 ```
@@ -70,7 +70,7 @@ Edit View
 
 ### Take Away:
 
-- Working with a node server using express, mongoose, mongoDB, and JSX for a view engine
+- Working with a node server using express, mongoose, mongoDB, and JSX for a view engine along with uploading files
 
 ### Challenges
 
@@ -82,12 +82,12 @@ Edit View
 ### Ideas incorperated into project
 
 - Give the user feedback and create a better user experience
-- Truncating text on index products and showing full text on details page
-- Not showing add products link in nav while on add product page
-- Making the entire product clickable
-- Responsive styling
-- Hover effects
-- Call to actions
+- Truncating text on index products and showing full text on details page => for more pleasing UI
+- Not showing add products link in nav while on add product page => user experience
+- Making the entire product clickable => instead of making user click a small area
+- Responsive styling => looks great on mobile, tablet, and desktop
+- Hover effects => giving user feedback
+- Call to actions => highlighting clickable areas
 
 ### Next Steps
 
